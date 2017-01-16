@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
   register Sinatra::Twitter::Bootstrap::Assets
 
 
-  get '/' do
-    erb :index
+  get '/application' do
+    erb :root
   end
 end

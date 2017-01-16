@@ -44,18 +44,22 @@
 <label>Title</label>
 <fieldset>
 <legend>Check the Box For the Apparopriate Title</legend>
-  <% Title.all.each do |title| %>
+<ul>
+  <% @titles.each do |title| %>
   
-  <p><label class="solor"> <input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%= title.id %>"><%=title.name%></label></p></input> 
+  <p><label class="solor"> <li><input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%= title.id %>"><%=title.name%></label></p></li></input> 
   <% end %>
+  </ul>
 </fieldset>
 
 <label>Landmark</label>
 <fieldset>
 <legend>Check the Box For the Apparopriate Landmark</legend>
-  <% Landmark.all.each do |landmark| %>
-  <p><label class="solor"> <input type="checkbox" id="landmark_<%=landmark.id%>" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%=landmark.name%></label></p></input> 
+<ul>
+  <% @landmarks.each do |landmark| %>
+  <p><label class="solor"> <li><input type="checkbox" id="landmark_<%=landmark.id%>" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%=landmark.name%></label></p></li></input> 
   <% end %>
+  </ul>
 
   <input type="submit" value="Create New Figure">
 </form>

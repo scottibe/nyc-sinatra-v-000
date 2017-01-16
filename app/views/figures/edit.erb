@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+<style>
+    label.solor {
+    color: DarkSlateGrey;
+  } 
+  </style>
+
+  <style>
+    .DoTheHorizontalGenre {
+    display: inline-block;
+}
+  </style> 
+
+  <title>Figures</title>
+</head>
+<body>
+  <h1>Name </h1>
+<form action="/figures/<%=@figure.id%>" method="POST">
+  <input type="hidden" name="_method" value="PATCH"> 
+  <input type="text" id="figure_name" name="figure[name]" value="<%=@figure.name%>">
+
+<p>
+<label>Edit Landmarks:
+
+<fieldset>
+<legend>Check the Box For the Apparopriate Landmark</legend>
+<ul>
+  <% @landmarks.each do |landmark| %>
+  <p><label class="solor"> <li><input type="checkbox" id="<%=landmark.id%>" name="figure[landmark_ids][]" value="<%= landmark.id %>" <%='checked' if @figure.landmarks.include?(landmark) %>><%=landmark.name%></label></p></li></input> 
+  <% end %>
+  </ul>
+  <label>Edit Landmark</label>
+<input type="text" id="new_landmark" name="landmark[name]"><br><br>
+<label>Year Completed:</label>
+<input type="text" name="landmark[year_completed]">
+</label>
+</p>
+
+<p>
+<label>Edit Titles: 
+<input type="text" id="new_title" name="title[name]">
+</label>
+</p>
+
+<label>Title</label>
+<fieldset>
+<legend>Check the Box For the Apparopriate Title</legend>
+<ul>
+  <% @titles.each do |title| %>
+  <p><label class="solor"> <li><input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%= title.id %>" <%='checked' if @figure.titles.include?(title) %>><%=title.name%></label></p></li></input> 
+  <% end %>
+  </ul>
+</fieldset>
+
+  <input type="submit" value="Edit Figure">
+</form>
+</fieldset>
+
+
+</body>
+</html>

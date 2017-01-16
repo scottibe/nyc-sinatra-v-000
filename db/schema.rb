@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170115184018) do
 
   create_table "landmarks", force: :cascade do |t|
     t.string   "name"
+    t.integer  "figure_id"
     t.integer  "year_completed"
     t.datetime "created_at"
     t.datetime "updated_at"
