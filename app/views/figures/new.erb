@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+<style>
+    label.solor {
+    color: DarkSlateGrey;
+  } 
+  </style>
+
+  <style>
+    .DoTheHorizontalGenre {
+    display: inline-block;
+}
+  </style> 
+
+  <title>Figures</title>
+</head>
+<body>
+  <h1>Add A New Figure </h1>
+<form action="/figures" method="POST">
+
+<p>
+<label>Figure's Name: 
+<input type="text" id="figure_name" name="figure[name]">
+</label>
+</p>
+
+<p>
+<label>Create New Title: 
+<input type="text" id="new_title" name="title[name]">
+</label>
+</p>
+
+<p>
+<label>Create New Landmark: 
+<input type="text" id="new_landmark" name="landmark[name]"><br><br>
+<label>Year Completed:</label>
+<input type="text" name="landmark[year_completed]">
+</label>
+</p>
+
+<label>Title</label>
+<fieldset>
+<legend>Check the Box For the Apparopriate Title</legend>
+  <% Title.all.each do |title| %>
+  
+  <p><label class="solor"> <input type="checkbox" id="title_<%=title.id%>" name="figure[title_ids][]" value="<%= title.id %>"><%=title.name%></label></p></input> 
+  <% end %>
+</fieldset>
+
+<label>Landmark</label>
+<fieldset>
+<legend>Check the Box For the Apparopriate Landmark</legend>
+  <% Landmark.all.each do |landmark| %>
+  <p><label class="solor"> <input type="checkbox" id="landmark_<%=landmark.id%>" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%=landmark.name%></label></p></input> 
+  <% end %>
+
+  <input type="submit" value="Create New Figure">
+</form>
+</fieldset>
+
+
+</body>
+</html>
